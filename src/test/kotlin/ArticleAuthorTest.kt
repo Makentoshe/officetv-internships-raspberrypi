@@ -11,27 +11,29 @@ class ArticleAuthorTest {
 
     @Test
     fun test1() {
-        val articleAuthors = ArticleAuthors(ArrayList(listOf("qadf", "qabd")))
-        assertEquals("qabdf".toList(), articleAuthors.findLexOrder())
+        // 0124 0143 q0 a1 b2 f3 d4
+        // 0123 0134 q0 a1 b2 d3 f4
+        val articleAuthors = ArticleAuthors(ArrayList(listOf("qabd", "qadf")))
+        assertEquals("qabfd".toList(), articleAuthors.findLexOrder())
     }
 
     @Test
     fun test2() {
-        // q a b c d e ... x y z
-        // Impossible
         val articleAuthors = ArticleAuthors(ArrayList(listOf("qabc", "qbcd", "qadc")))
+        assertEquals(ArrayList<Char>(), articleAuthors.findLexOrder())
     }
 
     @Test
     fun test3() {
-        val articleAuthors = ArticleAuthors(ArrayList(listOf("qa","bc", "de", "f")))
-        assertEquals("qabcdef".toList(), articleAuthors.findLexOrder())
+        val articleAuthors = ArticleAuthors(ArrayList(listOf("qa","qaqbd", "qaqc", "qaqd", "qbbda", "ab", "ac")))
+        assertEquals("qabcd".toList(), articleAuthors.findLexOrder())
     }
 
     @Test
     fun test4() {
-        val articleAuthors = ArticleAuthors(ArrayList(listOf("qaqbd", "qaqc", "qaqd", "qa", "qbbda", "ab", "ac")))
-        assertEquals("qabcd".toList(), articleAuthors.findLexOrder())
+        // proof for q=0, c=1 ...: 02 > 30 > 41 > 53 > 6*
+        val articleAuthors = ArticleAuthors(ArrayList(listOf("qa", "eq", "bc", "de", "f")))
+        assertEquals("qcaebdf".toList(), articleAuthors.findLexOrder())
     }
 
 

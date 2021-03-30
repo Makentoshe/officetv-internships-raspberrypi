@@ -1,7 +1,5 @@
 import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
-import kotlin.collections.HashSet
 
 fun main(args: Array<String>) {
     val scanner = Scanner(System.`in`)
@@ -9,23 +7,27 @@ fun main(args: Array<String>) {
     val names = (0 until limit).map { scanner.next() }
 
     val articleAuthors = ArticleAuthors(ArrayList(names))
+    println(articleAuthors.findLexOrder() ?: return println("Impossible"))
 }
 
-class ArticleAuthors(
-    val authors: ArrayList<String>
-) {
+class ArticleAuthors(val authors: ArrayList<String>) {
 
-    private val alphabet = LinkedList<Char>()
-
-    fun findLexOrder(): List<Char> {
-        authors.forEach { author ->
-            author.forEachIndexed { index, char ->
+    fun findLexOrder(): List<Char>? {
+        val alphabet = LinkedList<Char>()
+        // create initial alphabet
+        authors.map { it.first() }.toSet().forEach(alphabet::addLast)
+        // try to "greedy" naive algorithm
+        authors.forEachIndexed { aindex, author ->
+            author.forEachIndexed { cindex, char ->
                 if (!alphabet.contains(char)) {
-                    alphabet.addOrLast(index, char)
+                    alphabet.addOrLast(cindex, char)
                 }
             }
         }
-        return alphabet
+        // check the result
+        val unsorted = authors.map { author -> author.map(alphabet::indexOf).joinToString("") }
+        val sorted = unsorted.sorted()
+        return if (!sorted.equals(unsorted)) null else alphabet
     }
 
     private fun <E> LinkedList<E>.addOrLast(index: Int, element: E) {
