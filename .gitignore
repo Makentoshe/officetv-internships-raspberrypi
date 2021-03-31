@@ -32,4 +32,5 @@ out/
 
 # Gradle
 build/
+.gradle/
 
