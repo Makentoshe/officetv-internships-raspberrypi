@@ -36,5 +36,11 @@ class ArticleAuthorTest {
         assertEquals("qcaebdf".toList(), articleAuthors.findLexOrder())
     }
 
+    @Test
+    fun test5() {
+        val articleAuthors = ArticleAuthors(ArrayList(listOf("qabc", "dqaf", "efcdq")))
+        assertEquals("qcaebdf".toList(), articleAuthors.findLexOrder())
+    }
+
 
 }
