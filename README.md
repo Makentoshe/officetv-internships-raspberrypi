@@ -6,12 +6,12 @@ Project divides into the two parts in separate files (Main1.kt or Main2.kt). Thi
 
 ### Main1 
 
-The main goal is to the write a function that finds a possible alphabet for the lexicographically sorted strings.
+The main task is to the write a function that finds a possible alphabet for the lexicographically sorted strings.
 
 
 ### Main 2
 
-The main goal is to refactor a function with the given regex.
+The main task is to refactor a function with the given regex.
 
 
 ## Requirements
@@ -20,7 +20,7 @@ The main goal is to refactor a function with the given regex.
 
 ## Build project
 
-The project is not executable, but it also can be built.
+The project is not executable, but it can be built anyway.
 
 ### Gradle
 
