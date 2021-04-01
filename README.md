@@ -2,11 +2,11 @@
 
 Project for JetBrains summer internship 2021.
 
-Project divides into the two parts in separate files (Main1.kt or Main2.kt). This files solves one of the given tasks.
+Project divides into the two parts in separate files (Main1.kt or Main2.kt). These files solve one of the given tasks.
 
 ### Main1 
 
-The main task is to the write a function that finds a possible alphabet for the lexicographically sorted strings.
+The main task is to write a function that finds a possible alphabet for the lexicographically sorted strings.
 
 
 ### Main 2
